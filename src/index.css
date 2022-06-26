@@ -1,13 +1,288 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App {
+  height: 100vh;
+  background-image: url('https://raw.githubusercontent.com/fireclint/weather-app-react/main/src/assets/sunset.jpg');
+  background-size: cover;
+}
+
+.app__background--img {
+  width: 100%;
+  height: 100%;
+  line-height: auto;
+}
+
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.app__container {
+  width: 100%;
+  max-width: 900px;
+  padding: 4rem 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.app__top--bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.degree__toggle--bar {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 56px;
+  height: 24px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  backdrop-filter: blur(2px);
+}
+
+.degree__toggle--icon {
+  background-color: rgb(255, 20, 20);
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 300ms ease;
+  position: absolute;
+  left: 10%;
+  transform: translateX(-10%);
+}
+
+#fahrenheit-toggle {
+  left: 90%;
+  transform: translateX(-90%);
+}
+
+.degree__toggle--title {
+  color: #ccc;
+  font-size: 16px;
+  top: -50%;
+  position: absolute;
+  left: 10%;
+  transform: translate(-10%, -50%);
+  font-weight: 700;
+}
+
+#fahrenheit__toggle--title {
+  left: 90%;
+  transform: translate(-90%, -50%);
+}
+
+.weather__search--wrapper {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  padding: 0.7rem 0.8rem;
+  display: flex;
+  width: 40%;
+  border: 2px solid transparent;
+  transition: all 300ms ease;
+  backdrop-filter: blur(2px);
+}
+
+.weather__search--input:focus > .weather__search--wrapper {
+  border-color: #fff;
+}
+
+.weather__search--wrapper:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.weather__search--input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  margin-left: 12px;
+  font-weight: 700;
+}
+
+.weather__search--input::placeholder {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.weather__search--btn {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.weather__search--btn:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.app__title {
+  color: #fff;
+  text-align: center;
+  font-size: 48px;
+  margin-top: 8rem;
+}
+
+.weather__data {
+  margin-top: 4rem;
+}
+
+.weather__data--location {
+  font-size: 24px;
+  color: #ccc;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.weather__data--temperature {
+  font-size: 80px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.weather__extra-info {
+  background-color: rgba(255, 255, 255, 0.15);
+  display: flex;
+  border-radius: 12px;
+  margin-top: 4rem;
+  backdrop-filter: blur(8px);
+}
+
+.weather__extra--box {
+  width: calc(100% / 3);
+  padding: 2rem;
+  text-align: center;
+}
+
+.weather__extra--title {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.weather__extra--para {
+  color: #ccc;
+  font-size: 20px;
+}
+
+.weather__data--condition {
+  display: flex;
+  align-items: center;
+  color: #ccc;
+  font-size: 20px;
+}
+
+.weather__data--icon {
+  width: 28px;
+  margin-right: 4px;
+}
+
+.weather__astro-info--wrapper {
+  display: flex;
+  margin: 1rem 0;
+  align-items: center;
+}
+
+.weather__astro-info {
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  margin-right: 1.3rem;
+  color: #ccc;
+  font-size: 18px;
+}
+
+.weather__astro--divider {
+  width: 2px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.418);
+  margin-right: 1.3rem;
+}
+
+.weather__astro--icon {
+  font-size: 28px;
+}
+
+.weather__astro-info p {
+  margin-left: 8px;
+}
+
+.slider__wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.forecast__slider {
+  width: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  position: relative;
+  scroll-behavior: smooth;
+  cursor: grab;
+  user-select: none;
+}
+
+.forecast__slider::-webkit-scrollbar {
+  display: none;
+}
+
+.forecast__slider--item {
+  display: inline-block;
+  width: calc(100% / 5);
+  padding: 1rem;
+  color: #fff;
+  text-align: center;
+}
+
+.forecast__slider--icon {
+  width: 56px;
+  margin: 8px 0;
+}
+
+.slider__title {
+  font-size: 28px;
+  color: rgb(228, 228, 228);
+  margin-bottom: 16px;
+  margin-top: 1rem;
+}
+
+.slider__divider {
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.forecast__slider--temp {
+  font-size: 20px;
+}
+
+.scrolling {
+  cursor: grabbing;
+}
+
+.indiana-scroll-container--dragging {
+  cursor: grabbing;
 }
