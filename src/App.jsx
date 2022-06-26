@@ -7,7 +7,7 @@ function App() {
 
   const fetchData = async () => {
     const API_KEY = 'bec4d69fcaac495aab9151929222406'
-    const { data } = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${search}&days=1&aqi=no`)
+    const { data } = await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${search}&days=1&aqi=no`)
     setResult(data)
     setSearch('')
   }
@@ -16,7 +16,7 @@ function App() {
     const date = new Date()
     console.log(date)
     const API_KEY = 'bec4d69fcaac495aab9151929222406'
-    const { data } = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=auto:ip&days=1&aqi=no`)
+    const { data } = await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=auto:ip&days=1&aqi=no`)
     setResult(data)
   }
 
