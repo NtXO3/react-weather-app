@@ -47,7 +47,7 @@
 }
 
 .degree__toggle--bar {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(0, 0, 0, 0.4);
   width: 56px;
   height: 24px;
   border-radius: 50px;
@@ -55,6 +55,8 @@
   align-items: center;
   position: relative;
   backdrop-filter: blur(2px);
+  cursor: pointer;
+  user-select: none;
 }
 
 .degree__toggle--icon {
@@ -90,7 +92,7 @@
 }
 
 .weather__search--wrapper {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 12px;
   padding: 0.7rem 0.8rem;
   display: flex;
@@ -100,12 +102,8 @@
   backdrop-filter: blur(2px);
 }
 
-.weather__search--input:focus > .weather__search--wrapper {
-  border-color: #fff;
-}
-
 .weather__search--wrapper:hover {
-  border-color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(0, 0, 0, 0.5);
 }
 
 .weather__search--input {
@@ -115,11 +113,14 @@
   font-size: 18px;
   margin-left: 12px;
   font-weight: 700;
+  width: 100%;
+  color: #fff;
 }
 
 .weather__search--input::placeholder {
   font-weight: 500;
   font-size: 16px;
+  color: #bbb;
 }
 
 .weather__search--btn {
@@ -131,6 +132,7 @@
   align-items: center;
   cursor: pointer;
   transition: all 300ms ease;
+  color: #bbb;
 }
 
 .weather__search--btn:hover {
@@ -162,7 +164,7 @@
 }
 
 .weather__extra-info {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(0, 0, 0, 0.25);
   display: flex;
   border-radius: 12px;
   margin-top: 4rem;

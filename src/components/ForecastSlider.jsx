@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ScrollContainer from 'react-indiana-drag-scroll';
 
-const ForecastSlider = ({ hours, isFahrenheit }) => {
+const ForecastSlider = ({ hours, isFahrenheit, localTime }) => {
 
-    const date = new Date()
-    const dateHours = date.getHours()
+    const dateHours = localTime.getHours()
 
     return (
         <>
